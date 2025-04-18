@@ -26,3 +26,60 @@ The output includes a plotted graph showing the best tour found, with city indic
 ---
 
 🔧 Adjust parameters like `alpha`, `beta`, `ro`, and the number of ants/iterations to explore different behaviors and convergence speeds.
+
+---
+
+# 2- 📊 Clustering Algorithms: Hard C-Means (HCM) and Fuzzy C-Means (FCM)
+
+This project demonstrates two popular clustering algorithms — **Hard C-Means (HCM)** and **Fuzzy C-Means (FCM)** — applied to simple 2D data.
+
+### 🧠 What Are These Algorithms?
+
+#### 1. Hard C-Means (HCM)
+
+Also known as **k-means**, this is a crisp clustering algorithm where each data point belongs to exactly one cluster.
+
+**How it works:**
+
+- Initialize a partition matrix or random labels.
+- Compute cluster centroids based on assignments.
+- Assign each point to the nearest centroid.
+- Repeat until convergence (centroids stop changing significantly).
+
+**Extras:**
+
+- Calculates a **Quality Index (J-index)** — lower is better.
+- Tracks centroid changes using a rotation matrix.
+- Visualizes final clusters using `matplotlib`.
+
+🔁 Example function: `hcm(X, labels, num_clusters)`
+
+---
+
+#### 2. Fuzzy C-Means (FCM)
+
+A **soft clustering** algorithm where each point belongs to all clusters to a certain degree.
+
+**How it works:**
+
+- Assign fuzzy memberships (values from 0 to 1).
+- Iteratively update centroids and membership values.
+- Uses a **fuzziness coefficient `m`** to control overlap.
+
+**Evaluation:**
+
+- `jm`: Objective function (lower is better).
+- `fpc`: Fuzzy Partition Coefficient (higher = clearer clustering).
+
+🔁 Example function: `run_fcm_and_plot(X, c_values=[2, 3])`
+
+---
+
+## 🔍 Dataset
+
+Both algorithms use a simple 2D dataset of 8 points:
+
+```python
+X = np.array([[x1, x2, ..., x8],
+              [y1, y2, ..., y8]])
+
