@@ -94,26 +94,24 @@ The model used to fit the data is:
 
 output = a * (input^2) - b * cos(c * π * input)
 
-## ⚙️ Features
+
+### ⚙️ Features
 
 - Evolution Strategy with self-adaptive mutation
 - Minimizes MSE over generations
 - Visual comparison between actual and approximated data
 - Adjustable population size, max iterations, and convergence threshold
 
-## 📈 Output
+## 📐 MSE Calculation
 
-- Best-fit parameters `a`, `b`, and `c`
-- Final MSE
-- Runtime and iteration count
-- Plot of actual vs. approximated values
+The objective function used in optimization is Mean Squared Error (MSE), calculated as:
 
-## 🛠️ Usage
+```python
+def mse_value(input_data, output_data, params):
+    a, b, c = params
+    output_approx = a * (input_data ** 2) - b * np.cos(c * np.pi * input_data)
+    return np.mean((output_approx - output_data) ** 2)
 
-1. Make sure `numpy`, `matplotlib`, and your `mse_value()` function are defined/imported.
-2. Call the `evolutionary_strategies()` function with:
-   ```python
-   solution = evolutionary_strategies(pop, N_max, epsilon, input_data, output_data)
 
 
 
