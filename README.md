@@ -82,4 +82,40 @@ Both algorithms use a simple 2D dataset of 8 points:
 ```python
 X = np.array([[x1, x2, ..., x8],
               [y1, y2, ..., y8]])
+```
+
+## Evolution Strategies for Model Parameter Optimization
+
+This project implements an Evolution Strategy (ES) algorithm in Python to optimize the parameters of a non-linear regression model. The goal is to minimize the Mean Squared Error (MSE) between actual and predicted outputs using self-adaptive mutation techniques.
+
+### 🧠 Model Equation
+
+The model used to fit the data is:
+
+output = a * (input^2) - b * cos(c * π * input)
+
+## ⚙️ Features
+
+- Evolution Strategy with self-adaptive mutation
+- Minimizes MSE over generations
+- Visual comparison between actual and approximated data
+- Adjustable population size, max iterations, and convergence threshold
+
+## 📈 Output
+
+- Best-fit parameters `a`, `b`, and `c`
+- Final MSE
+- Runtime and iteration count
+- Plot of actual vs. approximated values
+
+## 🛠️ Usage
+
+1. Make sure `numpy`, `matplotlib`, and your `mse_value()` function are defined/imported.
+2. Call the `evolutionary_strategies()` function with:
+   ```python
+   solution = evolutionary_strategies(pop, N_max, epsilon, input_data, output_data)
+
+
+
+
 
